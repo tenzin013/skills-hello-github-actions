@@ -1,0 +1,31 @@
+# Example product data
+products = [
+    {"id": 1, "name": "Laptop", "price": 1000, "in_stock": True},
+    {"id": 2, "name": "Smartphone", "price": 500, "in_stock": False},
+    {"id": 3, "name": "Tablet", "price": 300, "in_stock": True},
+    {"id": 4, "name": "Monitor", "price": 150, "in_stock": True},
+    {"id": 5, "name": "Keyboard", "price": 50, "in_stock": False}
+]
+
+# Function to inspect products based on a condition
+def inspect_products(products, condition):
+    # List to store products that meet the condition
+    filtered_products = []
+    
+    # Iterate through each product and check the condition
+    for product in products:
+        if condition(product):
+            filtered_products.append(product)
+    
+    return filtered_products
+
+# Example condition: Check for products that are in stock
+condition_in_stock = lambda product: product["in_stock"]
+
+# Inspect products based on the condition
+in_stock_products = inspect_products(products, condition_in_stock)
+
+# Print the inspected products
+print("Products in stock:")
+for product in in_stock_products:
+    print(f"ID: {product['id']}, Name: {product['name']}, Price: {product['price']}")
